@@ -16,28 +16,28 @@ const allSongs = [
   {
     id: 1,
     title: "Short Change Hero",
-    artist: "Quincy Larson",
+    artist: "The Heavy",
     duration: "5:21",
     src: "./music/short-change-hero.m4a",
   },
   {
     id: 2,
     title: "Nightcall",
-    artist: "Quincy Larson",
+    artist: "Kavinsky",
     duration: "4:17",
     src: "./music/nightcall.m4a",
   },
   {
     id: 3,
     title: "Way Down We Go",
-    artist: "Quincy Larson",
+    artist: "Kaleo",
     duration: "3:35",
     src: "./music/way-down.m4a",
   },
   {
     id: 4,
     title: "Invaders must die",
-    artist: "Quincy Larson",
+    artist: "The Prodigy",
     duration: "4:56",
     src: "./music/invaders-must-die.m4a",
   }
@@ -54,6 +54,9 @@ const playSong = (id) => {
   const song = userData?.songs.find((song) => song.id === id);
   audio.src = song.src;
   audio.title = song.title;
+
+  const albumArt = document.getElementById("player-album-art").querySelector("img");
+  albumArt.src = `./img/${song.id}.jpg`;
 
   if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
     audio.currentTime = 0;
